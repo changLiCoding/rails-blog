@@ -1,25 +1,23 @@
-<h1>
-  <%= @article.title  %>
-</h1>
+<h1><%= @article.title %></h1>
 
-<p>
-  <%= @article.body %>
-</p>
+<p><%= @article.body %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_article_path(@article) %></li>
+  <li><%= link_to "Destroy", article_path(@article),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+</ul>
+
+<h2>Comments</h2>
+<%= render @article.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+
 <p>
   <%= @some_instance_variable %>
 </p>
 <p>
   <%= @some_instance_variable.object_id %>
 </p>
-<ul>
-  <li>
-    <%= link_to "Edit Article", edit_article_path(@article) %>
-  </li>
-  <li>
-    <%= link_to "Delete Article", article_path(@article), method: :delete,
-    data: {comfirm: "Are you sure? "} %>
-  </li>
-  <li>
-    <%= link_to "To Articles",     %>
-  </li>
-</ul>
